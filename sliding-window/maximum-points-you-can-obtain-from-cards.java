@@ -8,7 +8,7 @@ class Solution {
             sum+=cardPoints[i];
         }
        int max=sum;
-        for(int i=0;i<n;i++){
+        for(int i=0;i<k;i++){
             sum+=cardPoints[i]-cardPoints[n-k];
             max=Math.max(max,sum);
         }   
