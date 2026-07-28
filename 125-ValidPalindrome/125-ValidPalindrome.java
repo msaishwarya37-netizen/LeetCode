@@ -1,23 +1,22 @@
-// Last updated: 7/19/2026, 11:47:55 PM
-class Solution {
-    public boolean isPalindrome(String s) {
-        StringBuilder sb=new StringBuilder();
-        for(char c:s.toCharArray()){
-            
-            if(Character.isLetterOrDigit(c)){
-                sb.append(Character.toLowerCase(c));
-            }
-        }
-        int i=0;
-        int j=sb.length()-1;
-        while(i<j){
-            if(sb.charAt(i)!=sb.charAt(j)){
-                return false;
-            }
-            i++;
-            j--;
-
-        }
-        return true;
-    }
-}
+// Last updated: 7/28/2026, 8:06:25 PM
+1class Solution {
+2    public boolean isPalindrome(String s) {
+3        int left=0;
+4        int right=s.length()-1;
+5        while(left<right){
+6            while(left<right && !Character.isLetterOrDigit(s.charAt(left)))
+7            {
+8                left++;
+9            }
+10        while(left<right && !Character.isLetterOrDigit(s.charAt(right))){
+11            right--;
+12        }
+13        if(Character.toLowerCase(s.charAt(left))!=Character.toLowerCase(s.charAt(right))){
+14            return false;
+15        }
+16        left++;
+17        right--;
+18        }
+19        return true;
+20    }
+21}
