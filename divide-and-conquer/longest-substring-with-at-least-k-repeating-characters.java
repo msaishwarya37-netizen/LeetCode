@@ -1,32 +1,23 @@
-import java.util.HashMap;
 
 class Solution {
-    public int lengthOfLongestSubstringKDistinct(String s, int k) {
+    public int longestSubstring(String s, int k) {
+    if(s.length()<k)
+        return 0;
+    
+    HashMap<Character,Integer> map=new HashMap<>();
 
-        HashMap<Character, Integer> map = new HashMap<>();
+    for(int i=0;i<s.length();i++){
+        map.put(s.charAt(i),map.getOrDefault(s.charAt(i),0)+1);
+    }
+    for(int i=0;i<s.length();i++){
+      if(map.get(s.charAt(i))<k){
+        int left=longestSubstring(s.substring(0,i),k);
+        int right=longestSubstring(s.substring(i+1),k);
+        return Math.max(left,right);
+      }      
 
-        int left = 0;
-        int maxLen = 0;
-
-        for (int right = 0; right < s.length(); right++) {
-
-            map.put(s.charAt(right),
-                    map.getOrDefault(s.charAt(right), 0) + 1);
-
-            while (map.size() > k) {
-
-                map.put(s.charAt(left), map.get(s.charAt(left)) - 1);
-
-                if (map.get(s.charAt(left)) == 0) {
-                    map.remove(s.charAt(left));
-                }
-
-                left++;
-            }
-
-            maxLen = Math.max(maxLen, right - left + 1);
-        }
-
-        return maxLen;
+    }
+    return s.length();
+     
     }
 }
