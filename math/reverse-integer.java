@@ -4,9 +4,9 @@ class Solution {
         
         while(x!=0){
         int ldig=x%10;
-        if(rev>Integer.MAX_VALUE||(rev==Integer.MAX_VALUE&&ldig>7))
+        if(rev>Integer.MAX_VALUE/10||(rev==Integer.MAX_VALUE/10&&ldig>7))
         return 0;
-        if(rev<Integer.MIN_VALUE||(rev==Integer.MIN_VALUE&&ldig<-8))
+        if(rev<Integer.MIN_VALUE/10||(rev==Integer.MIN_VALUE/10&&ldig<-8))
         return 0;
         rev=rev*10+ldig;
         x=x/10;
