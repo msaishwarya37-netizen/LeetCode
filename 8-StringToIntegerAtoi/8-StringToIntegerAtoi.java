@@ -1,0 +1,31 @@
+// Last updated: 7/31/2026, 2:03:14 PM
+class Solution {
+    public int myAtoi(String s) {
+        int sign=1;
+        int result=0;
+        int i=0;
+        while(i<s.length()&&s.charAt(i)==' '){
+        i++;
+        }
+         if(i<s.length()&&(s.charAt(i)=='+'||s.charAt(i)=='-')){
+            if(s.charAt(i)=='-'){
+            sign=-1;
+            }
+            i++;
+         }
+         while(i<s.length()&&Character.isDigit(s.charAt(i))){
+            int digit=s.charAt(i)-'0';
+         
+         if(result>Integer.MAX_VALUE/10 || (result==Integer.MAX_VALUE/10 &&digit>7)){
+            if(sign==1)
+            return Integer.MAX_VALUE;
+            else
+            return Integer.MIN_VALUE;
+         }
+         result=result*10+digit;
+         i++;
+    }
+    return sign*result;
+}
+}
+
