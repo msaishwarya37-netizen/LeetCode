@@ -2,4 +2,6 @@
 select customer_number
 from Orders 
 group by customer_number
-having count(customer_number)>1;
+ORDER BY count(customer_number)
+DESC
+LIMIT 1;
