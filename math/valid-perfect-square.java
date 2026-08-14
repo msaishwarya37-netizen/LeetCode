@@ -2,7 +2,7 @@ class Solution {
     public boolean isPerfectSquare(int num) {
         int low=1;
         int high=num;
-        while(low<high){
+        while(low<=high){
             int mid=(low+high)/2;
             if(mid==num/mid){
             if(num%mid==0){
