@@ -1,17 +1,18 @@
-// Last updated: 8/14/2026, 11:03:05 PM
+// Last updated: 8/14/2026, 11:21:11 PM
 1class Solution {
-2    public int peakIndexInMountainArray(int[] arr) {
-3       int low=0;int high=arr.length-1;
-4       while(low<high){
-5        int mid=(low+high)/2;
-6        if(arr[mid]<arr[mid+1]){
-7            low=mid+1;
-8        }
-9        else{
-10        high=mid;
-11       }
-12       }
-13       return low;
-14    }
-15}
-16
+2    public char nextGreatestLetter(char[] letters, char target) {
+3       int low=0;
+4       int high=letters.length-1;
+5       while(low<=high){
+6        int mid=(low+high)/2;
+7        if(letters[mid]<=target){
+8            low=mid+1;
+9        }
+10        else{
+11            high=mid-1;
+12        }
+13       }
+14       return letters[low%letters.length];
+15
+16       }    
+17}
