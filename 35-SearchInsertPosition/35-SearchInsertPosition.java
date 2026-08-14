@@ -1,20 +1,17 @@
-// Last updated: 7/19/2026, 11:48:27 PM
-class Solution {
-    public int searchInsert(int[] nums, int target) {
-        int n=nums.length;
-        int low=0;
-        int high=n-1;
-        int mid;
-        while(low<=high){
-           mid=(low+high)/2;
-           if(nums[mid]==target)
-           return mid;
-           else if(nums[mid]>target)
-           high=mid-1;
-           else
-           low=mid+1; 
-        }
-        return low;
-
-    }
-}
+// Last updated: 8/14/2026, 8:34:37 PM
+1class Solution {
+2    public int searchInsert(int[] nums, int target) {
+3     int low=0;int high=nums.length-1;
+4     while(low<=high){
+5        int mid=(low+high)/2;
+6        if(nums[mid]==target)
+7        return mid;
+8        if(nums[mid]<target)
+9        low=mid+1;
+10        else
+11        high=mid-1;
+12     }
+13     return low;
+14}
+15}
+16
