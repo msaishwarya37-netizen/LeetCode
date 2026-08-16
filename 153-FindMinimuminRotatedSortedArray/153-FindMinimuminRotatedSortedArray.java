@@ -1,20 +1,19 @@
-// Last updated: 8/14/2026, 11:35:15 PM
+// Last updated: 8/16/2026, 12:12:10 PM
 1class Solution {
-2    public boolean isPerfectSquare(int num) {
-3        int low=1;
-4        int high=num;
-5        while(low<=high){
-6            int mid=(low+high)/2;
-7            if(mid==num/mid){
-8            if(num%mid==0){
-9                return true;
-10            }
-11        }
-12        if(mid<num/mid)
-13        low=mid+1;
-14        else
-15        high=mid-1;
-16    }
-17    return false;
-18    }
-19}
+2    public int countPrimes(int n) {
+3        boolean[] prime=new boolean[n];
+4        for(int i=2;i<n;i++)
+5            prime[i]=true;
+6            int count=0;
+7        for(int i=2;i<n;i++){
+8            if(prime[i]){
+9                count++;
+10            for(int j=i*2;j<n;j+=i)
+11                prime[j]=false;
+12            }
+13        }
+14        return count;
+15            
+16        
+17    }
+18}
