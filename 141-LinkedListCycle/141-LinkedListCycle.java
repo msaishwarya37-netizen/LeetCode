@@ -1,25 +1,33 @@
-// Last updated: 8/16/2026, 5:21:43 PM
+// Last updated: 8/16/2026, 5:40:34 PM
 1/**
 2 * Definition for singly-linked list.
-3 * class ListNode {
+3 * public class ListNode {
 4 *     int val;
 5 *     ListNode next;
-6 *     ListNode(int x) {
-7 *         val = x;
-8 *         next = null;
-9 *     }
-10 * }
-11 */
-12public class Solution {
-13    public boolean hasCycle(ListNode head) {
-14     ListNode slow=head;
-15     ListNode fast=head;
-16     while(fast!=null && fast.next!=null){
-17        slow=slow.next;
-18        fast=fast.next.next;
-19        if(slow==fast)
-20        return true;
-21     }
-22     return false;
-23}
-24    }
+6 *     ListNode() {}
+7 *     ListNode(int val) { this.val = val; }
+8 *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+9 * }
+10 */
+11class Solution {
+12    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+13        ListNode dummy=new ListNode(0);
+14        ListNode curr=dummy;
+15        int carry=0;
+16        while(l1!=null || l2!=null || carry!=0){
+17            int sum=carry;
+18            if(l1!=null){
+19            sum+=l1.val;
+20            l1=l1.next;
+21            }
+22            if(l2!=null){
+23            sum+=l2.val;
+24            l2=l2.next;
+25            }
+26            curr.next=new ListNode(sum%10);
+27            carry=sum/10;
+28            curr=curr.next;
+29        }
+30        return dummy.next;
+31            }
+32}
