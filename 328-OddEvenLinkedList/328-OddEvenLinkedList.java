@@ -1,31 +1,21 @@
-// Last updated: 8/17/2026, 8:23:44 PM
-1/**
-2 * Definition for singly-linked list.
-3 * public class ListNode {
-4 *     int val;
-5 *     ListNode next;
-6 *     ListNode() {}
-7 *     ListNode(int val) { this.val = val; }
-8 *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-9 * }
-10 */
-11class Solution {
-12    public ListNode oddEvenList(ListNode head) {
-13        if (head == null || head.next == null) 
-14            return head;
-15        
-16        ListNode odd = head;
-17        ListNode even = head.next;
-18ListNode evenhead=even;
-19        while (even != null && even.next != null) {
-20            odd.next = even.next;
-21            odd = odd.next;
-22
-23            even.next = odd.next;
-24            even = even.next;
-25
-26        }
-27odd.next=evenhead;
-28        return head;
-29    }
-30}
+// Last updated: 8/17/2026, 10:03:08 PM
+1
+2public class Solution {
+3    public ListNode detectCycle(ListNode head) {
+4        ListNode slow=head;
+5        ListNode fast=head;
+6         while(fast!=null && fast.next!=null){
+7            slow=slow.next;
+8            fast=fast.next.next;
+9        if(slow==fast){
+10            slow=head;
+11        while(slow!=fast){
+12            slow=slow.next;
+13            fast=fast.next;
+14        }
+15        return slow;
+16    }
+17}
+18return null;
+19    }
+20}
