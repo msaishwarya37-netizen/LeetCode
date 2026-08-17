@@ -1,21 +1,15 @@
-// Last updated: 8/17/2026, 10:03:08 PM
-1
-2public class Solution {
-3    public ListNode detectCycle(ListNode head) {
-4        ListNode slow=head;
-5        ListNode fast=head;
-6         while(fast!=null && fast.next!=null){
-7            slow=slow.next;
-8            fast=fast.next.next;
-9        if(slow==fast){
-10            slow=head;
-11        while(slow!=fast){
-12            slow=slow.next;
-13            fast=fast.next;
-14        }
-15        return slow;
-16    }
-17}
-18return null;
-19    }
-20}
+// Last updated: 8/17/2026, 10:25:13 PM
+1class Solution {
+2    public boolean isPalindrome(int x) {
+3        if(x<0)
+4        return false;
+5        int og=x;
+6        int rev=0;
+7        while(x>0){
+8            int digit=x%10;
+9            rev=rev*10+digit;
+10            x=x/10;
+11        }
+12        return og==rev;
+13    }
+14}
