@@ -1,29 +1,33 @@
-// Last updated: 8/26/2026, 12:33:34 PM
-1class Solution {
-2    public boolean isPalindrome(ListNode head) {
-3        if(head==null||head.next==null)
-4        return true;
-5
-6        ListNode slow=head,fast=head;
-7
-8        while(fast!=null && fast.next!=null){
-9            slow=slow.next;
-10            fast=fast.next.next;
-11        }
-12        ListNode prev=null;
-13        while(slow!=null){
-14            ListNode next=slow.next;
-15            slow.next=prev;
-16            prev=slow;
-17            slow=next;
-18        }
-19
-20        while(prev!=null){
-21            if(head.val!=prev.val)
-22            return false;
-23            head=head.next;
-24            prev=prev.next;
-25        }
-26        return true;                                                           
-27    }
-28}
+// Last updated: 8/26/2026, 1:48:52 PM
+1/**
+2 * Definition for singly-linked list.
+3 * public class ListNode {
+4 *     int val;
+5 *     ListNode next;
+6 *     ListNode() {}
+7 *     ListNode(int val) { this.val = val; }
+8 *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+9 * }
+10 */
+11class Solution {
+12    public ListNode deleteDuplicates(ListNode head) {
+13        ListNode dummy=new ListNode(0);
+14        dummy.next=head;
+15        ListNode prev=dummy;
+16        ListNode curr=head;
+17        while(curr!=null && curr.next!=null){
+18            
+19            if(curr.val==curr.next.val){
+20                int x=curr.val;
+21                while(curr!=null && curr.val==x)
+22                    curr=curr.next;
+23                    prev.next=curr;
+24                }
+25                else{
+26                prev=curr;
+27                curr=curr.next;
+28            }
+29        }
+30        return dummy.next;
+31    }
+32}
