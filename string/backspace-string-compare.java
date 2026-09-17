@@ -5,7 +5,7 @@ class Solution {
         for(int i=0;i<s.length();i++){
             char ch=s.charAt(i);
              if(ch=='#'){
-            if(!s.isEmpty()){
+            if(!st1.isEmpty()){
                st1.pop();
             }
              }
@@ -16,7 +16,7 @@ class Solution {
         for(int i=0;i<t.length();i++){
             char ch=t.charAt(i);
             if(ch=='#'){
-                if(!t.isEmpty()){
+                if(!st2.isEmpty()){
                     st2.pop();
                 }
             }
